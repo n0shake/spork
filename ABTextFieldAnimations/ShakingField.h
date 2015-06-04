@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShakingField : UITextField
+@interface ShakingField : UITextField <UITextFieldDelegate>
+
+@property (assign) CGRect *newFrame;
 
 - (void)shake;
 - (void)bounce;
 - (void)animateOpacity;
 - (void)removeOpacity;
 - (void)performImplicitTransparencyAnimation;
+
+@property (strong, nonatomic) UILabel *placeholderLabel;
 
 @end
