@@ -48,7 +48,7 @@
     }
     else
     {
-        [self.shakeField performImplicitTransparencyAnimation];
+        [self.shakeField animateOpacity];
         [button setTitle:@"Go Back" forState:UIControlStateNormal];
     }
 
@@ -57,6 +57,21 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
+}
+
+
+- (IBAction)implicitAnimation:(id)sender
+{
+    if ([[sender titleForState:UIControlStateNormal] isEqualToString:@"Go Back"])
+    {
+        [self.shakeField removeOpacity];
+        [sender setTitle:@"Transparent" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self.shakeField performImplicitTransparencyAnimation];
+        [sender setTitle:@"Go Back" forState:UIControlStateNormal];
+    }
 }
 
 
