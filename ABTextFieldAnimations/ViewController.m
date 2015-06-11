@@ -62,16 +62,33 @@
 
 - (IBAction)implicitAnimation:(id)sender
 {
-    if ([[sender titleForState:UIControlStateNormal] isEqualToString:@"Go Back"])
-    {
-        [self.shakeField removeOpacity];
-        [sender setTitle:@"Transparent" forState:UIControlStateNormal];
-    }
-    else
-    {
-        [self.shakeField performImplicitTransparencyAnimation];
-        [sender setTitle:@"Go Back" forState:UIControlStateNormal];
-    }
+//    if ([[sender titleForState:UIControlStateNormal] isEqualToString:@"Go Back"])
+//    {
+//        [self.shakeField removeOpacity];
+//        [sender setTitle:@"Transparent" forState:UIControlStateNormal];
+//    }
+//    else
+//    {
+//        [self.shakeField performImplicitTransparencyAnimation];
+//        [sender setTitle:@"Go Back" forState:UIControlStateNormal];
+//    }
+
+    [self createAnotherShakingField];
+}
+
+- (void) createAnotherShakingField
+{
+    ShakingField *newField = [[ShakingField alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - 150, 400, 300, 30)];
+    newField.delegate = newField;
+    newField.placeholder = @"New Field";
+    [self.view addSubview:newField];
+}
+
+- (IBAction)textDidChange:(id)sender
+{
+    UITextField *textField = (UITextField *)sender;
+    
+    NSLog(@"Text:%@", textField.text);
 }
 
 

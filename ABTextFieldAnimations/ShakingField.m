@@ -23,6 +23,13 @@
         values propert
  */
 
+-(void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+    
+    self.borderStyle = UITextBorderStyleRoundedRect;
+}
+
 - (void)shake
 {
     [self shakeWithIncrement:20 andTimeDuration:0.3];
@@ -131,29 +138,36 @@
 
 - (void)movePlaceholderText:(UITextField *)textField
 {
-    self.placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(textField.frame.origin.x+5, textField.frame.origin.y-30, 200, 40)];
+    self.placeholderLabel = nil;
+    self.placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(textField.frame.origin.x, textField.frame.origin.y, 200, 40)];
     self.placeholderLabel.font = [UIFont fontWithName: @"HelveticaNeue" size: 10.0];
     self.placeholderLabel.text = textField.placeholder;
+    self.placeholderLabel.textColor = [UIColor blueColor];
+    
     [textField.superview addSubview:self.placeholderLabel];
     textField.placeholder = @"";
     
-    CGFloat firstPosition = textField.frame.origin.x - 6;
-    CGFloat secondPosition = textField.frame.origin.x - 12;
-    CGFloat thirdPosition = textField.frame.origin.x - 18;
-    CGFloat fourthPosition = textField.frame.origin.x - 24;
+    CGFloat firstPosition = textField.frame.origin.x - 10;
+//    CGFloat secondPosition = textField.frame.origin.x - 12;
+    CGFloat thirdPosition = textField.frame.origin.x - 20;
+//    CGFloat fourthPosition = textField.frame.origin.x - 24;
     CGFloat fifthPosition = textField.frame.origin.x - 30;
     
     /*The property of the textfield to be animated. Here, we are animating the y-axis of the textfield*/
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
     
     /*Animates to*/
-    animation.values = @[[NSNumber numberWithFloat:firstPosition], [NSNumber numberWithFloat:secondPosition], [NSNumber numberWithFloat:thirdPosition],[NSNumber numberWithFloat:fourthPosition], [NSNumber numberWithFloat:fifthPosition] ];
+//    animation.values = @[[NSNumber numberWithFloat:firstPosition], [NSNumber numberWithFloat:secondPosition], [NSNumber numberWithFloat:thirdPosition],[NSNumber numberWithFloat:fourthPosition], [NSNumber numberWithFloat:fifthPosition] ];
+    
+    animation.values = @[[NSNumber numberWithFloat:firstPosition],[NSNumber numberWithFloat:thirdPosition], [NSNumber numberWithFloat:fifthPosition]];
     
     /*Should be floating numbers between 0.0 and 1.0. This defines the time point at which to apply keyframe values*/
-    animation.keyTimes = @[ @0, @(1 / 6.0), @(3 / 6.0), @(5 / 6.0), @1 ];
+//    animation.keyTimes = @[ @0, @(1 / 6.0), @(3 / 6.0), @(5 / 6.0), @1 ];
+    
+    animation.keyTimes = @[@0, @(1/2.0), @1];
     
     /*Duration of keyframe animation object*/
-    animation.duration = 0.1;
+    animation.duration = 0.2;
     
     /*When YES, the value first adds to the render tree to change the visual appearance, and then does the actual animation.*/
     /*When NO, it goes till some negative value of y of superview and then animates*/
@@ -161,14 +175,35 @@
     
     [self.placeholderLabel.layer addAnimation:animation forKey:@"moving"];
     
-//    self.placeholderLabel.frame = CGRectMake(textField.frame.origin.x+5, textField.frame.origin.y - 30, 200, 40);
+    self.placeholderLabel.frame = CGRectMake(textField.frame.origin.x+5, textField.frame.origin.y - 30, 200, 40);
     
+    if (textField.editing)
+    {
+        NSLog(@"Editing mode");
+    }
+    else
+    {
+        NSLog(@"Not in editing mode");
+    }
+    
+}
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    return YES;
 }
 
 - (void)removePlaceholder:(UITextField *)textField
 {
     textField.placeholder = self.placeholderLabel.text;
     [self.placeholderLabel removeFromSuperview];
+}
+
+- (IBAction)textDidChange:(id)sender
+{
+    UITextField *textField = (UITextField *)sender;
+    
+    NSLog(@"Text:%@", textField.text);
 }
 
 @end

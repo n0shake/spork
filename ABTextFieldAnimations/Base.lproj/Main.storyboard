@@ -25,6 +25,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="textDidChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="Zu7-bh-rVc"/>
                                     <outlet property="delegate" destination="iIq-Pz-VuW" id="e4q-gy-g5t"/>
                                 </connections>
                             </textField>
