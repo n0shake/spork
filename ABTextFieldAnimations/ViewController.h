@@ -11,7 +11,7 @@
 
 @interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet ShakingField *shakeField;
+@property (weak, nonatomic) IBOutlet UITextField *shakeField;
 
 
 @end

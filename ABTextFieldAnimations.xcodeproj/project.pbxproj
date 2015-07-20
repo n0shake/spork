@@ -14,7 +14,7 @@
 		46665A1D1B2029A900EA38CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46665A1C1B2029A900EA38CC /* Images.xcassets */; };
 		46665A201B2029A900EA38CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46665A1E1B2029A900EA38CC /* LaunchScreen.xib */; };
 		46665A2C1B2029A900EA38CC /* ABTextFieldAnimationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46665A2B1B2029A900EA38CC /* ABTextFieldAnimationsTests.m */; };
-		46665A371B2029DC00EA38CC /* ShakingField.m in Sources */ = {isa = PBXBuildFile; fileRef = 46665A361B2029DC00EA38CC /* ShakingField.m */; };
+		469558FF1B5D696300B6F751 /* UITextField+ABTextFieldAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 469558FE1B5D696300B6F751 /* UITextField+ABTextFieldAnimations.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,8 @@
 		46665A251B2029A900EA38CC /* ABTextFieldAnimationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ABTextFieldAnimationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46665A2A1B2029A900EA38CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46665A2B1B2029A900EA38CC /* ABTextFieldAnimationsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABTextFieldAnimationsTests.m; sourceTree = "<group>"; };
-		46665A351B2029DC00EA38CC /* ShakingField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakingField.h; sourceTree = "<group>"; };
-		46665A361B2029DC00EA38CC /* ShakingField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakingField.m; sourceTree = "<group>"; };
+		469558FD1B5D696300B6F751 /* UITextField+ABTextFieldAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+ABTextFieldAnimations.h"; sourceTree = "<group>"; };
+		469558FE1B5D696300B6F751 /* UITextField+ABTextFieldAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+ABTextFieldAnimations.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +92,8 @@
 				46665A1C1B2029A900EA38CC /* Images.xcassets */,
 				46665A1E1B2029A900EA38CC /* LaunchScreen.xib */,
 				46665A0F1B2029A800EA38CC /* Supporting Files */,
-				46665A351B2029DC00EA38CC /* ShakingField.h */,
-				46665A361B2029DC00EA38CC /* ShakingField.m */,
+				469558FD1B5D696300B6F751 /* UITextField+ABTextFieldAnimations.h */,
+				469558FE1B5D696300B6F751 /* UITextField+ABTextFieldAnimations.m */,
 			);
 			path = ABTextFieldAnimations;
 			sourceTree = "<group>";
@@ -226,7 +226,7 @@
 			files = (
 				46665A181B2029A900EA38CC /* ViewController.m in Sources */,
 				46665A151B2029A800EA38CC /* AppDelegate.m in Sources */,
-				46665A371B2029DC00EA38CC /* ShakingField.m in Sources */,
+				469558FF1B5D696300B6F751 /* UITextField+ABTextFieldAnimations.m in Sources */,
 				46665A121B2029A800EA38CC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -343,7 +343,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -359,6 +359,7 @@
 				INFOPLIST_FILE = ABTextFieldAnimations/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -370,6 +371,7 @@
 				INFOPLIST_FILE = ABTextFieldAnimations/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -426,6 +428,7 @@
 				46665A311B2029AA00EA38CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		46665A321B2029AA00EA38CC /* Build configuration list for PBXNativeTarget "ABTextFieldAnimationsTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +437,7 @@
 				46665A341B2029AA00EA38CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

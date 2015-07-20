@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "UITextField+ABTextFieldAnimations.h"
 #import <QuartzCore/QuartzCore.h>
 
 
@@ -20,7 +20,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UITextField *textField = [[UITextField alloc] init];
+    [textField shake];
+    
+    [self.shakeField setTextAlignment:NSTextAlignmentLeft];
+    [self.shakeField addTarget:self action:@selector(editingChanged) forControlEvents:UIControlEventEditingChanged];
+    
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void) editingChanged
+{
+    [self.shakeField sizeToFit];
+    
 }
 
 - (void)didReceiveMemoryWarning {
