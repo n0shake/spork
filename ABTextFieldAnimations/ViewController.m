@@ -21,9 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UITextField *textField = [[UITextField alloc] init];
-    [textField shake];
-    
     [self.shakeField setTextAlignment:NSTextAlignmentLeft];
     [self.shakeField addTarget:self action:@selector(editingChanged) forControlEvents:UIControlEventEditingChanged];
     
@@ -42,12 +39,18 @@
 }
 - (IBAction)shakeAction:(id)sender
 {
-    [self.shakeField shake];
+    [self.shakeField shakeWithCompletionBlock:^{
+        NSLog(@"Completion Block");
+    }];
 }
 
 - (IBAction)bounceAction:(id)sender
 {
-    [self.shakeField bounce];
+//    [self.shakeField bounceWithCompletionHandler:^{
+//        NSLog(@"Bounced pretty high bitches");
+//    }];
+//    
+    [self.shakeField replaceTextWithAnimationType:TypeFromLeft andDuration:2];
 }
 
 - (IBAction)animateOpacity:(id)sender
@@ -91,10 +94,6 @@
 
 - (void) createAnotherShakingField
 {
-    ShakingField *newField = [[ShakingField alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - 150, 400, 300, 30)];
-    newField.delegate = newField;
-    newField.placeholder = @"New Field";
-    [self.view addSubview:newField];
 }
 
 - (IBAction)textDidChange:(id)sender

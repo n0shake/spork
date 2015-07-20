@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ShakingField.h"
 
 @interface ViewController : UIViewController
 

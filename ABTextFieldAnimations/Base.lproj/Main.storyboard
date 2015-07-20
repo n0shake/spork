@@ -99,7 +99,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <customObject id="iIq-Pz-VuW" customClass="ShakingField"/>
             </objects>
         </scene>
     </scenes>
