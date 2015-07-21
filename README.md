@@ -6,7 +6,7 @@ Simple CoreAnimation based animations applied on textfields!
 
 ![Sample Animations](https://github.com/Abhishaker17/ABTextFieldAnimations/blob/master/Animations.gif)
 
-The MIT License (MIT)
+## The MIT License (MIT)
 
 Copyright (c) 2015 Abhishek Banthia
 
