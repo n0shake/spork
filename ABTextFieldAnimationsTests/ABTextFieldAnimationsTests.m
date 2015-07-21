@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "UITextField+ABTextFieldAnimations.h"
 
 @interface ABTextFieldAnimationsTests : XCTestCase
 
@@ -27,7 +28,13 @@
 
 - (void)testExample {
     // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+//    XCTAssert(YES, @"Pass");
+    
+    UITextField *sampleField = [[UITextField alloc] init];
+    [sampleField shakeWithCompletionHandler:^{
+        NSLog(@"WE have hit the completion block");
+        XCTAssert(YES, @"Pass");
+    }];
 }
 
 - (void)testPerformanceExample {

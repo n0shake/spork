@@ -15,6 +15,7 @@
 		46665A201B2029A900EA38CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46665A1E1B2029A900EA38CC /* LaunchScreen.xib */; };
 		46665A2C1B2029A900EA38CC /* ABTextFieldAnimationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46665A2B1B2029A900EA38CC /* ABTextFieldAnimationsTests.m */; };
 		469558FF1B5D696300B6F751 /* UITextField+ABTextFieldAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 469558FE1B5D696300B6F751 /* UITextField+ABTextFieldAnimations.m */; };
+		46D2DA2D1B5E24DC00246237 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 46D2DA2C1B5E24DB00246237 /* .travis.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		46665A2B1B2029A900EA38CC /* ABTextFieldAnimationsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABTextFieldAnimationsTests.m; sourceTree = "<group>"; };
 		469558FD1B5D696300B6F751 /* UITextField+ABTextFieldAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+ABTextFieldAnimations.h"; sourceTree = "<group>"; };
 		469558FE1B5D696300B6F751 /* UITextField+ABTextFieldAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+ABTextFieldAnimations.m"; sourceTree = "<group>"; };
+		46D2DA2C1B5E24DB00246237 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		46665A031B2029A800EA38CC = {
 			isa = PBXGroup;
 			children = (
+				46D2DA2C1B5E24DB00246237 /* .travis.yml */,
 				46665A0E1B2029A800EA38CC /* ABTextFieldAnimations */,
 				46665A281B2029A900EA38CC /* ABTextFieldAnimationsTests */,
 				46665A0D1B2029A800EA38CC /* Products */,
@@ -206,6 +209,7 @@
 			files = (
 				46665A1B1B2029A900EA38CC /* Main.storyboard in Resources */,
 				46665A201B2029A900EA38CC /* LaunchScreen.xib in Resources */,
+				46D2DA2D1B5E24DC00246237 /* .travis.yml in Resources */,
 				46665A1D1B2029A900EA38CC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

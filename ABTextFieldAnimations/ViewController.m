@@ -39,18 +39,16 @@
 }
 - (IBAction)shakeAction:(id)sender
 {
-    [self.shakeField shakeWithCompletionBlock:^{
+    [self.shakeField shakeWithCompletionHandler:^{
         NSLog(@"Completion Block");
     }];
 }
 
 - (IBAction)bounceAction:(id)sender
 {
-//    [self.shakeField bounceWithCompletionHandler:^{
-//        NSLog(@"Bounced pretty high bitches");
-//    }];
-//    
-    [self.shakeField replaceTextWithAnimationType:TypeFromLeft andDuration:2];
+    [self.shakeField animateReplacementWithText:@"Funny" withCompletionHandler:^{
+        NSLog(@"Funny text shown");
+    }];
 }
 
 - (IBAction)animateOpacity:(id)sender

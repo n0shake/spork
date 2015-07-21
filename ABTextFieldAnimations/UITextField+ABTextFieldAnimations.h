@@ -21,11 +21,13 @@ typedef enum : NSUInteger {
 
 @interface UITextField (ABTextFieldAnimations)
 
-- (void)shakeWithCompletionBlock:(void(^)())completionBlock;
-- (void)bounceWithCompletionHandler:(void(^)())completionBlock;
+- (void)shakeWithCompletionHandler:(void(^)())completionHandler;
+- (void)bounceWithCompletionHandler:(void(^)())completionHandler;
 - (void)animateOpacity;
 - (void)removeOpacity;
 - (void)performImplicitTransparencyAnimation;
-- (void)replaceTextWithAnimationType:(TypeAnimation)animationType andDuration:(CFTimeInterval)duration;
+- (void)animateReplacementWithText:(NSString *)replacementText;
+- (void)animateReplacementWithText:(NSString *)replacementText withCompletionHandler:(void(^)())completionHandler;
+- (void)replaceTextWithAnimationType:(TypeAnimation)animationType andDuration:(CFTimeInterval)duration andReplacementText:(NSString *)replacementText andCompletionHandler:(void(^)())completionHandler;
 
 @end

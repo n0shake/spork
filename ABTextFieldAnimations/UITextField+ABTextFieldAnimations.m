@@ -21,21 +21,12 @@
  values propert
  */
 
--(void)drawRect:(CGRect)rect
+- (void)shakeWithCompletionHandler:(void(^)())completionHandler
 {
-    [super drawRect:rect];
-    
-    self.borderStyle = UITextBorderStyleRoundedRect;
+    [self shakeWithIncrement:20 andTimeDuration:0.3 andCompletionHandler:completionHandler];
 }
 
-- (void)shakeWithCompletionBlock:(void(^)())completionBlock
-{
-    [self shakeWithIncrement:20 andTimeDuration:0.3 andCompletionBlock:^{
-        completionBlock();
-    }];
-}
-
-- (void)shakeWithIncrement:(float)increment andTimeDuration:(CFTimeInterval)duration andCompletionBlock:(void(^)())completionBlock
+- (void)shakeWithIncrement:(float)increment andTimeDuration:(CFTimeInterval)duration andCompletionHandler:(void(^)())completionHandler
 {
     /*The property of the textfield to be animated. Here, we are animating the x-axis of the textfield*/
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
@@ -50,17 +41,15 @@
     
     [self.layer addAnimation:animation forKey:@"shake"];
     
-    completionBlock();
+    completionHandler();
 }
 
-- (void)bounceWithCompletionHandler:(void(^)())completionBlock
+- (void)bounceWithCompletionHandler:(void(^)())completionHandler
 {
-    [self bounceWithDistance:10 andTimeDuration:0.4 andCompletionBlock:^{
-        completionBlock();
-    }];
+    [self bounceWithDistance:10 andTimeDuration:0.4 andCompletionHandler:completionHandler];
 }
 
-- (void)bounceWithDistance:(float)increment andTimeDuration:(CFTimeInterval)duration andCompletionBlock:(void(^)())completionBlock
+- (void)bounceWithDistance:(float)increment andTimeDuration:(CFTimeInterval)duration andCompletionHandler:(void(^)())completionHandler
 {
     /*The property of the textfield to be animated. Here, we are animating the y-axis of the textfield*/
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
@@ -80,7 +69,7 @@
     
     [self.layer addAnimation:animation forKey:@"bounce"];
     
-    completionBlock();
+    completionHandler();
     
     /*Explicity change y axis if the final value in animation.values array is not zero
      self.layer.frame = CGRectMake(self.layer.frame.origin.x, self.layer.frame.origin.y - 40, self.layer.frame.size.width, self.layer.frame.size.height);*/
@@ -117,7 +106,26 @@
     self.layer.opacity = value;
 }
 
-- (void)replaceTextWithAnimationType:(TypeAnimation)animationType andDuration:(CFTimeInterval)duration
+- (void)performImplicitTransparencyAnimation
+{
+    self.layer.opacity = 0.0;
+}
+
+#pragma mark -
+#pragma mark Replacement Animation Methods
+#pragma mark -
+
+- (void)animateReplacementWithText:(NSString *)replacementText
+{
+    [self replaceTextWithAnimationType:TypeFade andDuration:0.5 andReplacementText:replacementText andCompletionHandler:nil];
+}
+
+- (void)animateReplacementWithText:(NSString *)replacementText withCompletionHandler:(void (^)())completionHandler
+{
+    [self replaceTextWithAnimationType:TypeFade andDuration:0.5 andReplacementText:replacementText andCompletionHandler:completionHandler];
+}
+
+- (void)replaceTextWithAnimationType:(TypeAnimation)animationType andDuration:(CFTimeInterval)duration andReplacementText:(NSString *)replacementText andCompletionHandler:(void(^)())completionHandler
 {
     CATransition *transition = [CATransition animation];
     transition.duration = duration;
@@ -161,9 +169,11 @@
             break;
     }
     
-    [self.layer addAnimation:transition forKey:nil];
+    [self.layer addAnimation:transition forKey:@"replaceAnimation"];
     
-    self.text = @"some new text"; // or nil
+    self.text = replacementText; // or set it in the completion block.
+    
+    completionHandler();
 }
 
 /*Changes reflected immediately for layer properties. Animation takes place in the next update cycle.
@@ -171,9 +181,6 @@
  The next update cycle depends on the current run loop. See NSRunLoop class
  
  */
-- (void)performImplicitTransparencyAnimation
-{
-    self.layer.opacity = 0.0;
-}
+
 
 @end
