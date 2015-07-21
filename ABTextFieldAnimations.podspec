@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'ABTextFieldAnimations'
-  s.version      = '0.1'
+  s.version      = '0.2'
   s.summary      = 'Simple CoreAnimation based animations applied on UITextfields. Shake/Bounce your textfields. Animate opacity and text changes!'
   s.homepage     = 'https://github.com/Abhishaker17/ABTextFieldAnimations'
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
