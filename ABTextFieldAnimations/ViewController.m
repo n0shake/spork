@@ -57,12 +57,12 @@
     
     if ([[button titleForState:UIControlStateNormal] isEqualToString:@"Go Back"])
     {
-        [self.shakeField removeOpacity];
+        [self.shakeField animateOpacityToValue:0];
          [button setTitle:@"Transparent" forState:UIControlStateNormal];
     }
     else
     {
-        [self.shakeField animateOpacity];
+        [self.shakeField animateOpacityToValue:1];
         [button setTitle:@"Go Back" forState:UIControlStateNormal];
     }
 

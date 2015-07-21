@@ -21,6 +21,15 @@
  values propert
  */
 
+#pragma mark -
+#pragma mark Shake Methods
+#pragma mark -
+
+- (void)shake
+{
+    [self shakeWithIncrement:20 andTimeDuration:0.3 andCompletionHandler:nil];
+}
+
 - (void)shakeWithCompletionHandler:(void(^)())completionHandler
 {
     [self shakeWithIncrement:20 andTimeDuration:0.3 andCompletionHandler:completionHandler];
@@ -43,6 +52,10 @@
     
     completionHandler();
 }
+
+#pragma mark -
+#pragma mark Bounce Methods
+#pragma mark -
 
 - (void)bounceWithCompletionHandler:(void(^)())completionHandler
 {
@@ -79,18 +92,10 @@
  -- Explicit animation - Explicitly changing value of opacity in the end
  */
 
-- (void)animateOpacity
+- (void)animateOpacityToValue:(float)value
 {
-    [self animateOpacityToValue:0.0 fromValue:1.0];
-}
-
-- (void)removeOpacity
-{
-    [self animateOpacityToValue:1.0 fromValue:0.0];
-}
-
-- (void)animateOpacityToValue:(float)value fromValue:(float)fromValue
-{
+    float fromValue = self.layer.opacity;
+    
     CABasicAnimation* fadeAnim = [CABasicAnimation animationWithKeyPath:@"opacity"];
     
     /*Its important to define both fromValue; it does pick up current value but animation yields unexpected results*/
@@ -104,11 +109,6 @@
     
     /*Here, at the end, CoreAnimation removes the animation object and redraws the layer using the value param. Hence, for the change to be permanent, we must update the layer's opacity property as follows*/
     self.layer.opacity = value;
-}
-
-- (void)performImplicitTransparencyAnimation
-{
-    self.layer.opacity = 0.0;
 }
 
 #pragma mark -
@@ -125,7 +125,7 @@
     [self replaceTextWithAnimationType:TypeFade andDuration:0.5 andReplacementText:replacementText andCompletionHandler:completionHandler];
 }
 
-- (void)replaceTextWithAnimationType:(TypeAnimation)animationType andDuration:(CFTimeInterval)duration andReplacementText:(NSString *)replacementText andCompletionHandler:(void(^)())completionHandler
+- (void)replaceTextWithAnimationType:(ABAnimationType)animationType andDuration:(CFTimeInterval)duration andReplacementText:(NSString *)replacementText andCompletionHandler:(void(^)())completionHandler
 {
     CATransition *transition = [CATransition animation];
     transition.duration = duration;

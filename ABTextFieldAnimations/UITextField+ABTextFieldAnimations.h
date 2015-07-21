@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  Different Animation Values
+ */
+
 typedef enum : NSUInteger {
      TypePush,
      TypeFade,
@@ -17,9 +21,15 @@ typedef enum : NSUInteger {
     TypeFromRight,
     TypeFromTop,
     TypeFromBottom
-} TypeAnimation;
+} ABAnimationType;
 
 @interface UITextField (ABTextFieldAnimations)
+
+/**
+ *  Shakes a UITextField with default params
+ */
+
+- (void)shake;
 
 /**
  *  Shakes a UITextField and executes a block on shake completion
@@ -36,19 +46,12 @@ typedef enum : NSUInteger {
 - (void)bounceWithCompletionHandler:(void(^)())completionHandler;
 
 /**
- *  Animates a UITextField to zero opacity
+ *  Animates textfield opacity between params mentioned
+ *
+ *  @param value Final Opacity Value
  */
-- (void)animateOpacity;
 
-/**
- *  Animates a UITextField to full opacity
- */
-- (void)removeOpacity;
-
-/**
- *  Performs implicit animation on UITextField's opacity attribute. Same as animateOpacity method
- */
-- (void)performImplicitTransparencyAnimation;
+- (void)animateOpacityToValue:(float)value;
 
 /**
  *  Reset or change UITextField's text attribute with animation
@@ -72,8 +75,8 @@ typedef enum : NSUInteger {
  *  @param animationType     Type of animation to be performed. Check TypeAnimation enum for different values
  *  @param duration          Duration of animation
  *  @param replacementText   Final replacement text
- *  @param completionHandler A block object which is called after replacement is performed
+ *  @param completionHandler A block object to be executed
  */
-- (void)replaceTextWithAnimationType:(TypeAnimation)animationType andDuration:(CFTimeInterval)duration andReplacementText:(NSString *)replacementText andCompletionHandler:(void(^)())completionHandler;
+- (void)replaceTextWithAnimationType:(ABAnimationType)animationType andDuration:(CFTimeInterval)duration andReplacementText:(NSString *)replacementText andCompletionHandler:(void(^)())completionHandler;
 
 @end

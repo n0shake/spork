@@ -92,8 +92,6 @@
 				46665A161B2029A900EA38CC /* ViewController.h */,
 				46665A171B2029A900EA38CC /* ViewController.m */,
 				46665A191B2029A900EA38CC /* Main.storyboard */,
-				46665A1C1B2029A900EA38CC /* Images.xcassets */,
-				46665A1E1B2029A900EA38CC /* LaunchScreen.xib */,
 				46665A0F1B2029A800EA38CC /* Supporting Files */,
 				469558FD1B5D696300B6F751 /* UITextField+ABTextFieldAnimations.h */,
 				469558FE1B5D696300B6F751 /* UITextField+ABTextFieldAnimations.m */,
@@ -104,6 +102,8 @@
 		46665A0F1B2029A800EA38CC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				46665A1C1B2029A900EA38CC /* Images.xcassets */,
+				46665A1E1B2029A900EA38CC /* LaunchScreen.xib */,
 				46665A101B2029A800EA38CC /* Info.plist */,
 				46665A111B2029A800EA38CC /* main.m */,
 			);
