@@ -50,12 +50,21 @@
     
     [self.layer addAnimation:animation forKey:@"shake"];
     
-    completionHandler();
+    if (completionHandler)
+    {
+        completionHandler();
+    }
+    
 }
 
 #pragma mark -
 #pragma mark Bounce Methods
 #pragma mark -
+
+- (void)bounce
+{
+    [self bounceWithCompletionHandler:nil];
+}
 
 - (void)bounceWithCompletionHandler:(void(^)())completionHandler
 {
@@ -82,7 +91,11 @@
     
     [self.layer addAnimation:animation forKey:@"bounce"];
     
-    completionHandler();
+    if (completionHandler)
+    {
+        completionHandler();
+    }
+    
     
     /*Explicity change y axis if the final value in animation.values array is not zero
      self.layer.frame = CGRectMake(self.layer.frame.origin.x, self.layer.frame.origin.y - 40, self.layer.frame.size.width, self.layer.frame.size.height);*/
@@ -173,7 +186,11 @@
     
     self.text = replacementText; // or set it in the completion block.
     
-    completionHandler();
+    if (completionHandler)
+    {
+        completionHandler();
+    }
+    
 }
 
 /*Changes reflected immediately for layer properties. Animation takes place in the next update cycle.

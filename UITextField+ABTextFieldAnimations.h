@@ -13,10 +13,10 @@
  */
 
 typedef enum : NSUInteger {
-     TypePush,
-     TypeFade,
-     TypeReveal,
-     TypeMoveIn,
+    TypePush,
+    TypeFade,
+    TypeReveal,
+    TypeMoveIn,
     TypeFromLeft,
     TypeFromRight,
     TypeFromTop,
@@ -37,6 +37,12 @@ typedef enum : NSUInteger {
  *  @param completionHandler A block object which is called after shake
  */
 - (void)shakeWithCompletionHandler:(void(^)())completionHandler;
+
+/**
+ *  Bounce a UITextField with default params
+ */
+
+- (void)bounce;
 
 /**
  *  Bounces a UITextField and executes a block on bounce completion
