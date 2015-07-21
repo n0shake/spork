@@ -4,9 +4,8 @@ Pod::Spec.new do |s|
   s.version      = "0.1"
   s.summary      = "Simple CoreAnimation based animations applied on UITextfields. Shake/Bounce your textfields. Animate opacity and text changes!”
 
-  s.description  = <<-DESC
-                   UITextField category that using Core Animation adds a shake/bounce animation. Similar to the shake animation you get on entering a wrong password in OSX. Also, animate text changes in your textfield with a simple method. This category also gives you a simple method to animate opacity of the UITextField.
-                   DESC
+  s.description  = “UITextField category that using Core Animation adds a shake/bounce animation. Similar to the shake animation you get on entering a wrong password in OSX. Also, animate text changes in your textfield with a simple method. This category also gives you a simple method to animate opacity of the UITextField.”
+                   
 
   s.homepage     = "https://github.com/Abhishaker17/ABTextFieldAnimations"
   s.screenshots  = "https://github.com/Abhishaker17/ABTextFieldAnimations/blob/master/Animations.gif"
@@ -23,4 +22,5 @@ Pod::Spec.new do |s|
   s.source_files  = "*.{h,m}"
 
   s.requires_arc = true
+
 end
