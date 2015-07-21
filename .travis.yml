@@ -1,2 +1,5 @@
 language: objective-c
-xcode_project: ABTextFieldAnimations.xcodeproj
+before_install:
+- brew update
+- brew install xctool
+script: xctool -workspace ABTextFieldAnimations.xcworkspace -scheme ABTextFieldAnimations test
