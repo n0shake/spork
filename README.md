@@ -4,7 +4,39 @@
 
 Simple CoreAnimation based animations applied on textfields!
 
+## In Action
+
 ![Sample Animations](https://github.com/Abhishaker17/ABTextFieldAnimations/blob/master/Animations.gif)
+
+## Setup with CocoaPods
+
+- Add ``pod `ABTextFieldAnimations` `` to your podfile
+- Run ``pod install``
+- Run ``open app.xcworkspace``
+- Import ``UITextField+ABTextFieldAnimations.h`` in your controller
+
+## How to Use ABTextFieldAnimations
+
+It's easy peasy!
+
+	//For Shaking a UITextField With Default Params
+	[self.textfield shake];
+    
+	//For shake with custom increment and time duration
+    [self.textfield shakeWithIncrement:30 andTimeDuration:0.4 andCompletionHandler:nil];
+    
+	//For performing actions on shake completion with default params
+	[self.textfield shakeWithCompletionHandler:^{
+    	NSLog(@"Block called on completion of shake");
+    }];
+    
+Similar methods available for Bouncing a UITextField
+
+	- (void)bounce;
+	- (void)bounceWithCompletionHandler:(void(^)())completionHandler;
+    
+For replacing text in UITextField with Animations
+
 
 ## The MIT License (MIT)
 
@@ -27,4 +59,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
