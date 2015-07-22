@@ -35,7 +35,25 @@ Similar methods available for Bouncing a UITextField
 	- (void)bounce;
 	- (void)bounceWithCompletionHandler:(void(^)())completionHandler;
     
-For replacing text in UITextField with Animations
+For replacing text in UITextField with Fade Animation
+
+	 [self.textfield animateReplacementWithText:@"42 for life!"];
+     
+Replacing text with a completion handler
+
+	[self.textfield animateReplacementWithText:@"My preciousss" 	 withCompletionHandler:^{
+        NSLog(@"Benoit was innocent");
+    }];
+
+Replacing text with custom animation options (Check out ABAnimationOption enum for different animation options)
+
+	[self.shakeField replaceTextWithAnimationType:TypeReveal andDuration:0.3 andReplacementText:@"Funny how its turned out" andCompletionHandler:^{
+       NSLog(@"Code block to be executed on completion");
+   }];
+   
+Animate Opacity
+
+	[self.shakeField animateOpacityToValue:0.5];
 
 
 ## The MIT License (MIT)
