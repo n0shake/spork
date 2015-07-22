@@ -1,6 +1,6 @@
 # ABTextFieldAnimations
 
-[![Pod Status](https://cocoapod-badges.herokuapp.com/v/ABTextFieldAnimations/badge.png)](https://cocoapods.org/?q=ABTextFieldanimations)
+[![Pod Status](https://cocoapod-badges.herokuapp.com/v/ABTextFieldAnimations/badge.png)](https://cocoapods.org/?q=ABTextFieldAnimations)
 
 Simple CoreAnimation based animations applied on textfields!
 
