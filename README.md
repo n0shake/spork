@@ -1,6 +1,6 @@
 # Spork
 
-[![Pod Status](https://cocoapod-badges.herokuapp.com/v/ABTextFieldAnimations/badge.png)](https://cocoapods.org/?q=ABTextFieldAnimations)
+[![Pod Status](https://cocoapod-badges.herokuapp.com/v/ABTextFieldAnimations/badge.png)](https://cocoapods.org/?q=ABTextFieldAnimations) [![Readme Score](http://readme-score-api.herokuapp.com/score.svg?url=https://github.com/abhishekbanthia/spork)](http://clayallsopp.github.io/readme-score?url=https://github.com/abhishekbanthia/spork)
 
 Simple CoreAnimation based animations applied on textfields!
 
